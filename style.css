@@ -1,0 +1,401 @@
+﻿/* ===========================================
+   IQC Smart Shelf Life Decision System
+   Digital Kaizen
+=========================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',Arial,sans-serif;
+}
+
+body{
+
+    background:#edf2f7;
+
+    padding:30px;
+
+    color:#333;
+
+}
+
+.container{
+
+    max-width:1100px;
+
+    margin:auto;
+
+}
+
+/* Header */
+
+.header{
+
+    background:linear-gradient(135deg,#1565C0,#0D47A1);
+
+    color:white;
+
+    padding:25px;
+
+    border-radius:12px;
+
+    text-align:center;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.2);
+
+    margin-bottom:25px;
+
+}
+
+.header h1{
+
+    font-size:32px;
+
+}
+
+.header p{
+
+    margin-top:8px;
+
+    font-size:16px;
+
+}
+
+/* Card */
+
+.card,
+.decision{
+
+    background:white;
+
+    border-radius:12px;
+
+    padding:25px;
+
+    margin-bottom:25px;
+
+    box-shadow:0 4px 12px rgba(0,0,0,.12);
+
+}
+
+.card h2,
+.decision h2{
+
+    color:#1565C0;
+
+    margin-bottom:20px;
+
+}
+
+/* Label */
+
+label{
+
+    display:block;
+
+    margin-top:18px;
+
+    margin-bottom:8px;
+
+    font-weight:600;
+
+}
+
+/* Input */
+
+input,
+select{
+
+    width:100%;
+
+    padding:12px;
+
+    border:1px solid #cfd8dc;
+
+    border-radius:8px;
+
+    font-size:15px;
+
+    transition:.3s;
+
+}
+
+input:focus,
+select:focus{
+
+    border-color:#1565C0;
+
+    outline:none;
+
+    box-shadow:0 0 8px rgba(21,101,192,.25);
+
+}
+
+/* Button */
+
+button{
+
+    width:100%;
+
+    margin-top:25px;
+
+    background:#1565C0;
+
+    color:white;
+
+    border:none;
+
+    border-radius:8px;
+
+    padding:14px;
+
+    font-size:17px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+button:hover{
+
+    background:#0D47A1;
+
+    transform:translateY(-2px);
+
+}
+
+/* Table */
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    margin-top:10px;
+
+}
+
+th{
+
+    background:#1565C0;
+
+    color:white;
+
+    padding:12px;
+
+}
+
+td{
+
+    padding:12px;
+
+    border-bottom:1px solid #e0e0e0;
+
+}
+
+tr:nth-child(even){
+
+    background:#f8f9fb;
+
+}
+
+/* Decision Card */
+
+.statusCard{
+
+    padding:20px;
+
+    text-align:center;
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    border-radius:10px;
+
+    margin-bottom:20px;
+
+    background:#ECEFF1;
+
+}
+
+/* Status Colors */
+
+.ok{
+
+    color:#2E7D32;
+
+    font-weight:bold;
+
+}
+
+.trial{
+
+    color:#F9A825;
+
+    font-weight:bold;
+
+}
+
+.visual{
+
+    color:#EF6C00;
+
+    font-weight:bold;
+
+}
+
+.bake{
+
+    color:#8E24AA;
+
+    font-weight:bold;
+
+}
+
+.deviation{
+
+    color:#1565C0;
+
+    font-weight:bold;
+
+}
+
+.reject{
+
+    color:#D32F2F;
+
+    font-weight:bold;
+
+}
+
+/* Decision Background */
+
+.green{
+
+    background:#E8F5E9;
+
+    color:#2E7D32;
+
+}
+
+.yellow{
+
+    background:#FFF8E1;
+
+    color:#F9A825;
+
+}
+
+.orange{
+
+    background:#FFF3E0;
+
+    color:#EF6C00;
+
+}
+
+.purple{
+
+    background:#F3E5F5;
+
+    color:#8E24AA;
+
+}
+
+.blue{
+
+    background:#E3F2FD;
+
+    color:#1565C0;
+
+}
+
+.red{
+
+    background:#FFEBEE;
+
+    color:#C62828;
+
+}
+
+/* Footer */
+
+.footer{
+
+    text-align:center;
+
+    color:#777;
+
+    margin-top:30px;
+
+    font-size:13px;
+
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+body{
+
+    padding:15px;
+
+}
+
+.header h1{
+
+    font-size:24px;
+
+}
+
+.card,
+.decision{
+
+    padding:18px;
+
+}
+
+table,
+thead,
+tbody,
+tr,
+td,
+th{
+
+    display:block;
+
+}
+
+th{
+
+    display:none;
+
+}
+
+td{
+
+    width:100%;
+
+    border:none;
+
+    border-bottom:1px solid #ddd;
+
+}
+
+button{
+
+    font-size:15px;
+
+}
+
+.statusCard{
+
+    font-size:18px;
+
+}
+
+}

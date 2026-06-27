@@ -1,0 +1,349 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>IQC Smart Shelf Life Decision System</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+
+<h1>IQC Smart Shelf Life Decision System</h1>
+
+<p>Digital Kaizen - Material Shelf Life Verification</p>
+
+</div>
+
+<div class="card">
+
+<h2>Material Verification</h2>
+
+<label>Part Number</label>
+
+<input
+type="text"
+id="partNo"
+placeholder="Example : AC06887EP_01">
+
+<label>Date Type</label>
+
+<select id="dateType" onchange="toggleInput()">
+
+<option value="mfg">Manufacturing Date</option>
+
+<option value="dc">Date Code (WWYY)</option>
+
+</select>
+
+<div id="mfgDiv">
+
+<label>Manufacturing Date</label>
+
+<input
+type="date"
+id="mfgDate">
+
+</div>
+
+<div id="dcDiv" style="display:none;">
+
+<label>Date Code</label>
+
+<input
+type="text"
+maxlength="4"
+id="dateCode"
+placeholder="Example : 1224">
+
+</div>
+
+<div id="receivedDiv" style="display:none;">
+
+<label>Received Date (Glue Only)</label>
+
+<input
+type="date"
+id="receivedDate">
+
+</div>
+
+<button onclick="calculate()">
+
+CHECK SHELF LIFE
+
+</button>
+
+</div>
+
+
+<div class="card">
+
+<h2>Material Details</h2>
+
+<table>
+
+<tr>
+
+<td>Category</td>
+
+<td id="category">-</td>
+
+</tr>
+
+<tr>
+
+<td>Material Age</td>
+
+<td id="age">-</td>
+
+</tr>
+
+<tr>
+
+<td>Normal Expiry</td>
+
+<td id="normalExpiry">-</td>
+
+</tr>
+
+<tr>
+
+<td>Trial Expiry</td>
+
+<td id="trialExpiry">-</td>
+
+</tr>
+
+<tr>
+
+<td>Deviation Expiry</td>
+
+<td id="deviationExpiry">-</td>
+
+</tr>
+
+<tr>
+
+<td>Current Stage</td>
+
+<td id="stage">-</td>
+
+</tr>
+
+</table>
+
+</div>
+
+
+<div class="card">
+
+<h2>Approval Verification</h2>
+
+<label>Approval Status</label>
+
+<select id="approval">
+
+<option value="none">
+
+None
+
+</option>
+
+<option value="trial">
+
+Trial Validation Available
+
+</option>
+
+<option value="deviation">
+
+Deviation Approved
+
+</option>
+
+</select>
+
+<button onclick="updateDecision()">
+
+VERIFY APPROVAL
+
+</button>
+
+</div>
+
+
+<div class="decision">
+
+<h2>Final Decision</h2>
+
+<div id="decisionCard" class="statusCard">
+
+Waiting for Verification...
+
+</div>
+
+<table>
+
+<tr>
+
+<td>Status</td>
+
+<td id="status">-</td>
+
+</tr>
+
+<tr>
+
+<td>Action</td>
+
+<td id="action">-</td>
+
+</tr>
+
+<tr>
+
+<td>Final Expiry</td>
+
+<td id="finalExpiry">-</td>
+
+</tr>
+
+</table>
+
+</div>
+
+
+<div class="card">
+
+<h2>DC Matrix Quick Reference</h2>
+
+<table>
+
+<tr>
+
+<th>Material</th>
+
+<th>Normal</th>
+
+<th>Trial / Visual / Bake</th>
+
+<th>Deviation</th>
+
+</tr>
+
+<tr>
+
+<td>Electronic</td>
+
+<td>0-2 Years</td>
+
+<td>2-3.5 Years Trial</td>
+
+<td>3.5-5 Years</td>
+
+</tr>
+
+<tr>
+
+<td>Packing</td>
+
+<td>0-2 Years</td>
+
+<td>2-5 Years Visual</td>
+
+<td>-</td>
+
+</tr>
+
+<tr>
+
+<td>PCB</td>
+
+<td>0-6 Months</td>
+
+<td>6-12 Months Use<br>1-2 Years Bake</td>
+
+<td>2-3.5 Years</td>
+
+</tr>
+
+<tr>
+
+<td>Plastic</td>
+
+<td>0-3 Years</td>
+
+<td>3-4.5 Years Visual</td>
+
+<td>4.5-6 Years</td>
+
+</tr>
+
+<tr>
+
+<td>Metal</td>
+
+<td>0-1 Year</td>
+
+<td>1-2.5 Years Visual</td>
+
+<td>2.5-4 Years</td>
+
+</tr>
+
+<tr>
+
+<td>Label</td>
+
+<td>0-1 Year</td>
+
+<td>1-2.5 Years Visual</td>
+
+<td>2.5-4 Years</td>
+
+</tr>
+
+<tr>
+
+<td>Glue</td>
+
+<td>0-6 Months</td>
+
+<td>-</td>
+
+<td>Deviation + 3 Months</td>
+
+</tr>
+
+<tr>
+
+<td>Battery</td>
+
+<td>0-6 Months</td>
+
+<td>-</td>
+
+<td>Up to 3.5 Years</td>
+
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
